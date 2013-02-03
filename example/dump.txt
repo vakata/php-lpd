@@ -1,0 +1,71 @@
+
+
+
+                                   Windows
+                              Printer Test Page
+     Congratulations!
+     If you can read this information, you have correctly installed your
+     Generic / Text Only on ***.
+     The information below describes your printer driver and port 
+     settings.
+     Submitted Time: 08:28:50 .. .3..2..2013 ...
+     Computer name:  ***
+     Printer name:   PHP test
+     Printer model:  Generic / Text Only
+     Color support:  No
+     Port name(s):   127.0.0.1:515
+     Data format:    RAW
+     Share name:     
+     Location:       
+     Comment:        
+     Driver name:    UNIDRV.DLL
+     Data file:      TTY.GPD
+     Config file:    UNIDRVUI.DLL
+     Help file:      UNIDRV.HLP
+     Driver version: 6.00
+     Environment:    Windows x64
+     Additional files used by this driver:
+      C:\Windows\system32\spool\DRIVERS\x64\3\TTYRES.DLL 
+     (6.1.7600.16385 (win7_rtm.090713-1255))
+      C:\Windows\system32\spool\DRIVERS\x64\3\TTY.INI
+      C:\Windows\system32\spool\DRIVERS\x64\3\TTY.DLL 
+     (6.1.7600.16385 (win7_rtm.090713-1255))
+      C:\Windows\system32\spool\DRIVERS\x64\3\TTYUI.DLL 
+     (6.1.7600.16385 (win7_rtm.090713-1255))
+      C:\Windows\system32\spool\DRIVERS\x64\3\TTYUI.HLP
+      C:\Windows\system32\spool\DRIVERS\x64\3\UNIRES.DLL 
+     (6.1.7600.16385 (win7_rtm.090713-1255))
+      C:\Windows\system32\spool\DRIVERS\x64\3\STDNAMES.GPD
+      C:\Windows\system32\spool\DRIVERS\x64\3\STDDTYPE.GDL
+      C:\Windows\system32\spool\DRIVERS\x64\3\STDSCHEM.GDL
+      C:\Windows\system32\spool\DRIVERS\x64\3\STDSCHMX.GDL
+     This is the end of the printer test page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
