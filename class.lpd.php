@@ -36,13 +36,13 @@ class LPD
 		while(true);
 	}
 
-	protected function read_command($msgsock, $receive_mode = false) {
+	protected function read_command($msgsock, $receive_mode = false, $control_file = null) {
 		if(false === ($buff = socket_read($msgsock, 4096, PHP_NORMAL_READ))) {
 			throw new Exception('socket_read() failed: reason: ' . socket_strerror(socket_last_error($msgsock)));
 		}
 		$command = ord($buff[0]);
 		$arguments = preg_split('([\s]+)', substr($buff,1));
-		$this->process_command($msgsock, $command, $arguments, $receive_mode);
+		$this->process_command($msgsock, $command, $arguments, $receive_mode, $control_file);
 	}
 	protected function read_bytes($msgsock, $bytes) {
 		$content = '';
@@ -52,9 +52,10 @@ class LPD
 			}
 			$content .= $buff;
 		} while(mb_strlen($content, '8bit') < $bytes && $buff != '');
-		return mb_substr($content, 0, $bytes, '8bit');
+		return $content;
+		//return mb_substr($content, 0, $bytes, '8bit');
 	}
-	protected function process_command($msgsock, $command, $arguments, $receive_mode) {
+	protected function process_command($msgsock, $command, $arguments, $receive_mode, $control_file = null) {
 		$this->debug($command);
 		switch($command) {
 			case 1:
@@ -69,9 +70,9 @@ class LPD
 				}
 				else {
 					socket_write($msgsock, chr(0));
-					$this->read_bytes($msgsock, $arguments[0]);
+					$control_file = $this->read_bytes($msgsock, $arguments[0]);
 					socket_write($msgsock, chr(0));
-					$this->read_command($msgsock, $receive_mode);
+					$this->read_command($msgsock, $receive_mode, $control_file);
 				}
 				break;
 			case 3:
@@ -84,7 +85,7 @@ class LPD
 					$data = $this->read_bytes($msgsock, $arguments[0]);
 					socket_write($msgsock, chr(0));
 					socket_close($msgsock);
-					$this->process_data($data);
+					$this->process_data($data, $control_file);
 				}
 				break;
 			default:
@@ -97,9 +98,26 @@ class LPD
 			echo $msg . "\r\n";
 		}
 	}
-	protected function process_data($data) {
+	protected function process_data($data, $control_file) {
+		$data = preg_split('(\n)', $data);
+		$dump = array();
+		foreach($data as $row) {
+			$res = array();
+			$row = preg_split('(\r)', $row);
+			foreach($row as $r) {
+				for($i = 0, $j = strlen($r); $i < $j; $i++) {
+					if(!isset($res[$i]) || $r[$i] !== ' ') {
+						$res[$i] = $r[$i];
+					}
+				}
+			}
+			$dump[] = implode('',$res);
+		}
+		$dump = implode("\r\n", $dump);
+		$data = $dump;
+
 		if($this->call && is_callable($this->call)) {
-			call_user_func($this->call, $data);
+			call_user_func($this->call, $data, $control_file);
 		}
 	}
 }

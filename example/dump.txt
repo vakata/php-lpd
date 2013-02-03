@@ -8,13 +8,13 @@
      Generic / Text Only on ***.
      The information below describes your printer driver and port 
      settings.
-     Submitted Time: 08:28:50 .. .3..2..2013 ...
+     Submitted Time: 11:25:25 .. .3..2..2013 ...
      Computer name:  ***
      Printer name:   PHP test
      Printer model:  Generic / Text Only
      Color support:  No
      Port name(s):   127.0.0.1:515
-     Data format:    RAW
+     Data format:    TEXT
      Share name:     
      Location:       
      Comment:        
