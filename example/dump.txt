@@ -8,7 +8,7 @@
      Generic / Text Only on ***.
      The information below describes your printer driver and port 
      settings.
-     Submitted Time: 11:25:25 .. .3..2..2013 ...
+     Submitted Time: 11:35:18 ÷. .3..2..2013 .ã.
      Computer name:  ***
      Printer name:   PHP test
      Printer model:  Generic / Text Only

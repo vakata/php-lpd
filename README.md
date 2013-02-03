@@ -11,7 +11,7 @@ You should be good to go, you can either:
 
 or
 
-* Install a generic LPR text printer and start printing
+* Install a generic LPR text printer and start printing (if you are printing non-latin characters, please configure your printer with the correct font).
 
 Data sent to the printer is echoed, and then written to a `example\dump.txt` text file, you can change that in `example\server.php`.
 
